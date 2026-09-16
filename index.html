@@ -139,6 +139,7 @@
             border: none;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(157, 78, 221, 0.4);
+            text-align: center;
         }
 
         .btn:hover {
@@ -260,29 +261,22 @@
             color: var(--primary);
         }
 
-        .contact-form {
+        /* NUEVA SECCIÓN DE INFORMACIÓN DE ENTREGAS */
+        .delivery-info-box {
             background: var(--bg-card);
             padding: 30px;
             border-radius: 12px;
             border: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            justify-content: center;
+            gap: 20px;
         }
 
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            background: var(--bg-dark);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            color: white;
-            outline: none;
-            transition: var(--transition);
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--primary);
+        .delivery-info-box p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
         }
 
         /* --- 6. PIE DE PÁGINA --- */
@@ -408,7 +402,6 @@
         <div class="hero-content">
             <h1>Bienvenido a <span>KrhorkosStore</span></h1>
             <p>Somos una tienda dedicada a la venta de ropa. Aquí encontrarás una selección práctica de camisas, pantalones y calcetines para tu día a día.</p>
-            <!-- BOTÓN ACTUALIZADO APUNTANDO A sitio.html -->
             <a href="sitio.html" class="btn">Ver Productos</a>
         </div>
     </section>
@@ -473,7 +466,7 @@
                     <i class="fa-solid fa-envelope"></i>
                     <div>
                         <h4>Correo Electrónico</h4>
-                        <p style="color: var(--text-muted);">KrhorkosStore@gmail.com</p>
+                        <p style="color: var(--text-muted);">krhorkos3dstudioand2d@gmail.com</p>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -485,18 +478,11 @@
                 </div>
             </div>
 
-            <form class="contact-form" onsubmit="event.preventDefault(); alert('Mensaje enviado correctamente.'); this.reset();">
-                <div class="form-group">
-                    <input type="text" placeholder="Tu Nombre" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Tu Correo Electrónico" required>
-                </div>
-                <div class="form-group">
-                    <textarea rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
-                </div>
-                <button type="submit" class="btn" style="width: 100%;">Enviar Mensaje</button>
-            </form>
+            <!-- SECCIÓN DE CONTACTO Y NUEVA INFORMACIÓN -->
+            <div class="delivery-info-box">
+                <a href="mailto:krhorkos3dstudioand2d@gmail.com" class="btn">Contactar</a>
+                <p>📍 Las entregas solo se realizan en la zona de Chulavista. Es posible que solo se entreguen los sábados y domingos.</p>
+            </div>
         </div>
     </section>
 
