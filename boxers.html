@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- ===================================================================================================== AQUI CONFIGURO LOS ESTILOS Y METADATOS PARA MI PAGINA DE BOXERS ===================================================================================================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KrhorkosStore | Bóxers</title>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <!-- FontAwesome para Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -165,15 +162,20 @@
 
         .product-img-container {
             width: 100%;
-            height: 250px;
+            height: 280px;
+            background: #121318;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
             overflow: hidden;
-            background: #22232e;
         }
 
         .product-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
         }
 
         .product-info {
@@ -205,7 +207,6 @@
 </head>
 <body>
 
-    <!-- ===================================================================================================== AQUI COLOCO MI BARRA DE NAVEGACION SUPERIOR ===================================================================================================== -->
     <header>
         <div class="nav-container">
             <a href="sitio.html" class="logo">KRHORKOS<span>STORE</span></a>
@@ -217,9 +218,7 @@
         </div>
     </header>
 
-    <!-- ===================================================================================================== AQUI INICIO LA SECCION DE CATALOGO DE BOXERS ===================================================================================================== -->
     <section>
-        <!-- ===================================================================================================== AQUI PONGO MIS BOTONES DE REGRESO PARA FACILITAR LA NAVEGACION ===================================================================================================== -->
         <div class="top-buttons">
             <a href="sitio.html" class="btn-regresar"><i class="fa-solid fa-arrow-left"></i> Volver al Principio (Inicio)</a>
             <a href="sitio.html" class="btn-regresar"><i class="fa-solid fa-grip"></i> Volver a Categorías</a>
@@ -228,13 +227,14 @@
         <h2 class="section-title">Catálogo de Bóxers</h2>
         <p class="section-subtitle">Selecciona tus bóxers favoritos por categoría</p>
 
-        <!-- ===================================================================================================== AQUI COMIENZA LA SUBCATEGORIA DE BOXERS PARA NIÑO ===================================================================================================== -->
         <h3 class="subcategory-title">Bóxers para Niño</h3>
         <div class="products-grid">
-            <!-- ===================================================================================================== AQUI DEJO EL ESPACIO LISTO PARA PEGAR MIS PRODUCTOS DE BOXERS DE NIÑO USANDO MIS RUTAS LOCALES EN IMG ===================================================================================================== -->
+
+            <!-- ======================================================================================================== -->
+            <!-- AQUI EMPIEZA MI BLOQUE PARA COPIAR Y SUBIR MAS BOXERS DE NIÑO (COPIO DESDE ESTA ETIQUETA DIV HASTA ABAJO) -->
+            <!-- ======================================================================================================== -->
             <div class="product-card">
                 <div class="product-img-container">
-                    <!-- ===================================================================================================== AQUI PONGO LA RUTA LOCAL DE MI IMAGEN PARA BOXER DE NIÑO ===================================================================================================== -->
                     <img src="img/BOXERS/NINO/BOXER_NINO_1.jpeg" alt="Bóxer Niño">
                 </div>
                 <div class="product-info">
@@ -242,15 +242,20 @@
                     <div class="product-price">$30 MXN</div>
                 </div>
             </div>
+            <!-- ======================================================================================================== -->
+            <!-- AQUI TERMINA MI BLOQUE DE BOXERS DE NIÑO -->
+            <!-- ======================================================================================================== -->
+
         </div>
 
-        <!-- ===================================================================================================== AQUI COMIENZA LA SUBCATEGORIA DE BOXERS PARA NIÑA ===================================================================================================== -->
         <h3 class="subcategory-title">Bóxers para Niña</h3>
         <div class="products-grid">
-            <!-- ===================================================================================================== AQUI DEJO EL ESPACIO LISTO PARA PEGAR MIS PRODUCTOS DE BOXERS DE NIÑA USANDO MIS RUTAS LOCALES EN IMG ===================================================================================================== -->
+
+            <!-- ======================================================================================================== -->
+            <!-- AQUI EMPIEZA MI BLOQUE PARA COPIAR Y SUBIR MAS BOXERS DE NIÑA (COPIO DESDE ESTA ETIQUETA DIV HASTA ABAJO) -->
+            <!-- ======================================================================================================== -->
             <div class="product-card">
                 <div class="product-img-container">
-                    <!-- ===================================================================================================== AQUI PONGO LA RUTA LOCAL DE MI IMAGEN PARA BOXER DE NIÑA ===================================================================================================== -->
                     <img src="img/BOXERS/NINA/BOXER_NINA_1.jpeg" alt="Bóxer Niña">
                 </div>
                 <div class="product-info">
@@ -258,15 +263,20 @@
                     <div class="product-price">$30 MXN</div>
                 </div>
             </div>
+            <!-- ======================================================================================================== -->
+            <!-- AQUI TERMINA MI BLOQUE DE BOXERS DE NIÑA -->
+            <!-- ======================================================================================================== -->
+
         </div>
 
-        <!-- ===================================================================================================== AQUI COMIENZA LA SUBCATEGORIA DE BOXERS PARA ADULTO ===================================================================================================== -->
         <h3 class="subcategory-title">Bóxers para Adulto</h3>
         <div class="products-grid">
-            <!-- ===================================================================================================== AQUI DEJO EL ESPACIO LISTO PARA PEGAR MIS PRODUCTOS DE BOXERS DE ADULTO USANDO MIS RUTAS LOCALES EN IMG ===================================================================================================== -->
+
+            <!-- ======================================================================================================== -->
+            <!-- AQUI EMPIEZA MI BLOQUE PARA COPIAR Y SUBIR MAS BOXERS DE ADULTO (COPIO DESDE ESTA ETIQUETA DIV HASTA ABAJO) -->
+            <!-- ======================================================================================================== -->
             <div class="product-card">
                 <div class="product-img-container">
-                    <!-- ===================================================================================================== AQUI PONGO LA RUTA LOCAL DE MI IMAGEN PARA BOXER DE ADULTO ===================================================================================================== -->
                     <img src="img/BOXERS/ADULTO/BOXER_1.jpeg" alt="Bóxer Adulto">
                 </div>
                 <div class="product-info">
@@ -274,10 +284,13 @@
                     <div class="product-price">$35 MXN</div>
                 </div>
             </div>
+            <!-- ======================================================================================================== -->
+            <!-- AQUI TERMINA MI BLOQUE DE BOXERS DE ADULTO -->
+            <!-- ======================================================================================================== -->
+
         </div>
     </section>
 
-    <!-- ===================================================================================================== AQUI PONGO EL PIE DE PAGINA DE MI SITIO WEB ===================================================================================================== -->
     <footer>
         <p>&copy; 2026 KrhorkosStore. Todos los derechos reservados.</p>
     </footer>
