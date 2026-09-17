@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- ===================================================================================================== AQUI CONFIGURO LOS METADATOS Y ESTILOS PRINCIPALES DE MI TIENDA ===================================================================================================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KrhorkosStore | Tienda Web </title>
+    <title>KrhorkosStore | Categorías</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <!-- FontAwesome para Iconos -->
@@ -36,7 +37,6 @@
             overflow-x: hidden;
         }
 
-        /* --- 1. BARRA DE NAVEGACIÓN --- */
         header {
             position: fixed;
             top: 0;
@@ -88,16 +88,8 @@
             color: var(--accent);
         }
 
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-main);
-        }
-
-        /* --- SECCIONES GENERALES --- */
         section {
-            padding: 100px 20px;
+            padding: 140px 20px 100px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -138,212 +130,49 @@
             box-shadow: 0 6px 20px rgba(123, 47, 253, 0.6);
         }
 
-        /* ==========================================
-           1. CATÁLOGO DE IMÁGENES (PRODUCTOS)
-           ========================================== */
-        .products-grid {
+        .categories-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .product-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-        }
-
-        .product-img-container {
-            width: 100%;
-            height: 250px;
-            overflow: hidden;
-            background: #22232e;
-        }
-
-        .product-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .product-info {
-            padding: 25px;
-        }
-
-        .product-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .product-price {
-            font-size: 1.2rem;
-            color: var(--accent);
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .product-desc {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-
-        /* ==========================================
-           2. SECCIÓN DE CONTACTO PARA COMPRAS
-           ========================================== */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: stretch;
-        }
-
-        .contact-info-box {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
             justify-content: center;
         }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: var(--bg-card);
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid var(--border-color);
-        }
-
-        .contact-item i {
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-
-        .purchase-instructions-box {
-            background: var(--bg-card);
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .purchase-instructions-box p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-
-
-        /* ==========================================
-           3. SECCIÓN DE SERVICIOS — SITIOS WEB
-           ========================================== */
-        .services-container {
+        .category-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 40px;
-        }
-
-        .service-intro {
-            margin-bottom: 30px;
-        }
-
-        .service-intro h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--text-main);
-        }
-
-        .service-intro p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-
-        .service-intro p strong {
-            color: var(--text-main);
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 35px;
-        }
-
-        .pricing-card {
-            background: var(--bg-dark);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 25px;
-        }
-
-        .pricing-card h4 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--text-main);
-        }
-
-        .pricing-price {
-            font-size: 1.6rem;
-            color: var(--accent);
-            font-weight: 800;
-            margin-bottom: 15px;
-        }
-
-        .pricing-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .service-rules {
+            text-align: center;
+            transition: var(--transition);
             display: flex;
             flex-direction: column;
+            align-items: center;
             gap: 20px;
-            border-top: 1px solid var(--border-color);
-            padding-top: 30px;
         }
 
-        .rule-box {
-            background: var(--bg-dark);
-            border-left: 4px solid var(--primary);
-            padding: 20px;
-            border-radius: 0 8px 8px 0;
+        .category-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(123, 47, 253, 0.3);
         }
 
-        .rule-box h5 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            color: var(--text-main);
+        .category-icon {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 10px;
         }
 
-        .rule-box p {
+        .category-card h3 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .category-card p {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             line-height: 1.6;
         }
 
-        .rule-box.warning {
-            border-left-color: #ffcc00;
-        }
-
-
-        /* --- 4. PIE DE PÁGINA --- */
         footer {
             background: var(--bg-card);
             border-top: 1px solid var(--border-color);
@@ -352,199 +181,54 @@
             color: var(--text-muted);
             font-size: 0.9rem;
         }
-
-        /* --- RESPONSIVE DESIGN --- */
-        @media(max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: var(--bg-card);
-                padding: 20px;
-                border-bottom: 1px solid var(--border-color);
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            .menu-toggle {
-                display: block;
-            }
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-            .services-container {
-                padding: 20px;
-            }
-        }
     </style>
 </head>
 <body>
 
-    <!-- BARRA DE NAVEGACIÓN -->
+    <!-- ===================================================================================================== AQUI COLOCO MI BARRA DE NAVEGACION SUPERIOR ===================================================================================================== -->
     <header>
         <div class="nav-container">
-            <a href="index.html" class="logo">KRHORKOS<span>STORE</span></a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="#catalogo">Catálogo</a></li>
-                <li><a href="#contacto-compras">Comprar</a></li>
-                <li><a href="#servicios-web">Servicios Web</a></li>
+            <a href="sitio.html" class="logo">KRHORKOS<span>STORE</span></a>
+            <ul class="nav-links">
+                <li><a href="sitio.html">Inicio</a></li>
+                <li><a href="calcetines.html">Calcetines</a></li>
+                <li><a href="boxers.html">Bóxers</a></li>
             </ul>
-            <div class="menu-toggle" id="mobileMenu">
-                <i class="fa-solid fa-bars"></i>
-            </div>
         </div>
     </header>
 
-    <!-- ========================================== -->
-    <!-- 1. CATÁLOGO DE IMÁGENES                      -->
-    <!-- ========================================== -->
-    <section id="catalogo" style="padding-top: 120px;">
-        <h2 class="section-title">Catálogo de Productos</h2>
-        <p class="section-subtitle">Explora los artículos disponibles para comprar. </p>
+    <!-- ===================================================================================================== AQUI EMPIEZA LA SECCION PRINCIPAL DE SELECCION DE CATEGORIAS ===================================================================================================== -->
+    <section>
+        <h2 class="section-title">Categorías de la Tienda</h2>
+        <p class="section-subtitle">Selecciona una categoría para explorar los productos disponibles</p>
 
-        <div class="products-grid">
-
-            <!-- INICIO DEL BLOQUE DE PRODUCTO: Repetir este bloque para agregar más productos -->
-            <div class="product-card">
-                <div class="product-img-container">
-                    <!-- Insertar las URL de las imagenes aqui -->
-                    <img src="img/BOXERS/ADULTO/BOXER_1">
+        <div class="categories-grid">
+            <!-- ===================================================================================================== AQUI PONGO LA TARJETA DE CATEGORIA DE CALCETINES ===================================================================================================== -->
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fa-solid fa-socks"></i>
                 </div>
-                <div class="product-info">
-                    <h3 class="product-title">Boxer comodo de color azul. </h3>
-                    <div class="product-price">$35 MXN</div>
-                </div>
-            </div>
-            <!-- FIN DEL BLOQUE DE PRODUCTO -->
-
-            <!-- Repite este bloque para agregar más productos -->
-            <div class="product-card">
-                <div class="product-img-container">
-                    <img src="img/CALCETINES/ADULTO/CALCETIN_1.jpeg"> <!--  =======================================================AQUI DEBO DE MODIFICAR LA RUTA POR LA EXACTA DE EL ARCHIVO A PONER =============================================================-->
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">Calcetines De Color Negro</h3>
-                    <div class="product-price">$20 MXN</div>
-                </div>
+                <h3>Calcetines</h3>
+                <p>Explora nuestra gran variedad de calcetines cómodos y de excelente calidad para todas las edades.</p>
+                <a href="calcetines.html" class="btn">Ver Calcetines</a>
             </div>
 
-        </div>
-    </section>
-
-
-    <!-- ========================================== -->
-    <!-- 2. SECCIÓN DE CONTACTO PARA COMPRAS        -->
-    <!-- ========================================== -->
-    <section id="contacto-compras">
-        <h2 class="section-title">Realizar una Compra</h2>
-        <p class="section-subtitle">Sigue las instrucciones para procesar tu pedido</p>
-        
-        <div class="contact-container">
-            <div class="contact-info-box">
-                <div class="contact-item">
-                    <i class="fa-solid fa-envelope"></i>
-                    <div>
-                        <h4>Correo Electrónico</h4>
-                        <p style="color: var(--text-muted);">krhorkosstore@gmail.com</p>
-                    </div>
+            <!-- ===================================================================================================== AQUI PONGO LA TARJETA DE CATEGORIA DE BOXERS ===================================================================================================== -->
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fa-solid fa-vest-patches"></i>
                 </div>
-                <div class="contact-item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <div>
-                        <h4>Ubicación de Entregas</h4>
-                        <p style="color: var(--text-muted);">📍 Las entregas se realizan los sábados y domingos únicamente</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="purchase-instructions-box">
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=krhorkosstore@gmail.com" target="_blank" class="btn">Enviar Correo de Pedido</a>
-                <p>Escribe qué es lo que deseas comprar y adjunta una captura de pantalla donde se vea la foto del artículo y su precio</p>
+                <h3>Bóxers</h3>
+                <p>Encuentra bóxers cómodos, frescos y con diseños chidos pensados para el día a día.</p>
+                <a href="boxers.html" class="btn">Ver Bóxers</a>
             </div>
         </div>
     </section>
 
-
-    <!-- ========================================== -->
-    <!-- 3. SECCIÓN DE SERVICIOS — SITIOS WEB       -->
-    <!-- ========================================== -->
-    <section id="servicios-web">
-        <h2 class="section-title">Servicios Digitales</h2>
-        <p class="section-subtitle">Soluciones profesionales para tu presencia en internet</p>
-
-        <div class="services-container">
-            <div class="service-intro">
-                <h3>🌐 Próximamente: Tu propio sitio web con Krhorkos</h3>
-                <p>Krhorkos3DStudioAnd2D creará tu página web. Todos los sitios llevan el prefijo <strong>Krhorkos</strong> en su dirección.</p>
-            </div>
-
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h4>Plan Básico</h4>
-                    <div class="pricing-price">$1,500 MXN</div>
-                    <p>Incluye el sitio basico + primer pago de mantenimiento.</p>
-                </div>
-
-                <div class="pricing-card">
-                    <h4>Condición de Pago Base</h4>
-                    <div class="pricing-price">$1,000 / $500</div>
-                    <p>Si solo pagas los $1,000 del sitio: <strong>NO se habilitará hasta completar los $500 del primer mantenimiento</strong>.</p>
-                </div>
-
-                <div class="pricing-card">
-                    <h4>Planes Superiores</h4>
-                    <div class="pricing-price">Precio del sitio + $500 MXN</div>
-                    <p>Incluye la tarifa del diseño elegido más $500 MXN de primer mantenimiento.</p>
-                </div>
-            </div>
-
-            <div class="service-rules">
-                <div class="rule-box">
-                    <h5>Instrucciones de pago</h5>
-                    <p>• Enviar captura de comprobante al correo<br>• Incluir el enlace de tu futuro sitio web</p>
-                </div>
-
-                <div class="rule-box warning">
-                    <h5>IMPORTANTE</h5>
-                    <p>Escribe desde el correo de tu negocio, no desde cuentas ajenas, para identificar cada proyecto fácilmente.</p>
-                </div>
-
-                <div class="rule-box">
-                    <h5>Responsabilidad</h5>
-                    <p>Una vez entregado el sitio web, no me hago responsable del uso que se le dé.</p>
-                </div>
-
-                <div class="rule-box">
-                    <h5>Cambios y mantenimiento</h5>
-                    <p>• Cambio sencillo (subir imagen, texto, ajuste básico): <strong>$10 MXN por cambio</strong><br>• Cambio completo de diseño/estética: <strong>desde $500 MXN</strong> según complejidad.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PIE DE PÁGINA -->
+    <!-- ===================================================================================================== AQUI PONGO EL PIE DE PAGINA DE MI SITIO WEB ===================================================================================================== -->
     <footer>
         <p>&copy; 2026 KrhorkosStore. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- SCRIPT MENÚ MÓVIL -->
-    <script>
-        const mobileMenu = document.getElementById('mobileMenu');
-        const navLinks = document.getElementById('navLinks');
-
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-    </script>
 </body>
 </html>
