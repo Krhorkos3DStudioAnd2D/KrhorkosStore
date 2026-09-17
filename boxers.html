@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- ===================================================================================================== AQUI CONFIGURO LOS ESTILOS Y METADATOS PARA MI PAGINA DE BOXERS ===================================================================================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KrhorkosStore | Bóxers</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #0f1015;
+            --bg-card: #181922;
+            --primary: #7b2ffd;
+            --primary-hover: #9353ff;
+            --accent: #00f5d4;
+            --text-main: #f8f9fa;
+            --text-muted: #a0a5b1;
+            --border-color: #2a2c3d;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 16, 21, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(123, 47, 253, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        section {
+            padding: 120px 20px 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .top-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .btn-regresar {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-regresar:hover {
+            border-color: var(--primary);
+            background: #22232e;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+
+        .subcategory-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 40px 0 20px 0;
+            color: var(--accent);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .product-img-container {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            background: #22232e;
+        }
+
+        .product-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        footer {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===================================================================================================== AQUI COLOCO MI BARRA DE NAVEGACION SUPERIOR ===================================================================================================== -->
+    <header>
+        <div class="nav-container">
+            <a href="sitio.html" class="logo">KRHORKOS<span>STORE</span></a>
+            <ul class="nav-links">
+                <li><a href="sitio.html">Inicio</a></li>
+                <li><a href="calcetines.html">Calcetines</a></li>
+                <li><a href="boxers.html">Bóxers</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ===================================================================================================== AQUI INICIO LA SECCION DE CATALOGO DE BOXERS ===================================================================================================== -->
+    <section>
+        <!-- ===================================================================================================== AQUI PONGO MIS BOTONES DE REGRESO PARA FACILITAR LA NAVEGACION ===================================================================================================== -->
+        <div class="top-buttons">
+            <a href="sitio.html" class="btn-regresar"><i class="fa-solid fa-arrow-left"></i> Volver al Principio (Inicio)</a>
+            <a href="sitio.html" class="btn-regresar"><i class="fa-solid fa-grip"></i> Volver a Categorías</a>
+        </div>
+
+        <h2 class="section-title">Catálogo de Bóxers</h2>
+        <p class="section-subtitle">Selecciona tus bóxers favoritos por categoría</p>
+
+        <!-- ===================================================================================================== AQUI COMIENZA LA SUBCATEGORIA DE BOXERS PARA NIÑO ===================================================================================================== -->
+        <h3 class="subcategory-title">Bóxers para Niño</h3>
+        <div class="products-grid">
+            <!-- ===================================================================================================== AQUI DEJO EL ESPACIO LISTO PARA PEGAR MIS PRODUCTOS DE BOXERS DE NIÑO USANDO MIS RUTAS LOCALES EN IMG ===================================================================================================== -->
+            <div class="product-card">
+                <div class="product-img-container">
+                    <!-- ===================================================================================================== AQUI PONGO LA RUTA LOCAL DE MI IMAGEN PARA BOXER DE NIÑO ===================================================================================================== -->
+                    <img src="img/BOXERS/NINO/BOXER_NINO_1.jpeg" alt="Bóxer Niño">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Bóxer Infantil Algodón</h3>
+                    <div class="product-price">$30 MXN</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================================================================================================== AQUI COMIENZA LA SUBCATEGORIA DE BOXERS PARA NIÑA ===================================================================================================== -->
+        <h3 class="subcategory-title">Bóxers para Niña</h3>
+        <div class="products-grid">
+            <!-- ===================================================================================================== AQUI DEJO EL ESPACIO LISTO PARA PEGAR MIS PRODUCTOS DE BOXERS DE NIÑA USANDO MIS RUTAS LOCALES EN IMG ===================================================================================================== -->
+            <div class="product-card">
+                <div class="product-img-container">
+                    <!-- ===================================================================================================== AQUI PONGO LA RUTA LOCAL DE MI IMAGEN PARA BOXER DE NIÑA ===================================================================================================== -->
+                    <img src="img/BOXERS/NINA/BOXER_NINA_1.jpeg" alt="Bóxer Niña">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Bóxer Estampado Niña</h3>
+                    <div class="product-price">$30 MXN</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================================================================================================== AQUI COMIENZA LA SUBCATEGORIA DE BOXERS PARA ADULTO ===================================================================================================== -->
+        <h3 class="subcategory-title">Bóxers para Adulto</h3>
+        <div class="products-grid">
+            <!-- ===================================================================================================== AQUI DEJO EL ESPACIO LISTO PARA PEGAR MIS PRODUCTOS DE BOXERS DE ADULTO USANDO MIS RUTAS LOCALES EN IMG ===================================================================================================== -->
+            <div class="product-card">
+                <div class="product-img-container">
+                    <!-- ===================================================================================================== AQUI PONGO LA RUTA LOCAL DE MI IMAGEN PARA BOXER DE ADULTO ===================================================================================================== -->
+                    <img src="img/BOXERS/ADULTO/BOXER_1.jpeg" alt="Bóxer Adulto">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Bóxer Cómodo De Color Azul</h3>
+                    <div class="product-price">$35 MXN</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================================================== AQUI PONGO EL PIE DE PAGINA DE MI SITIO WEB ===================================================================================================== -->
+    <footer>
+        <p>&copy; 2026 KrhorkosStore. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
