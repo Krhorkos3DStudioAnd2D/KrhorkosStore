@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- ===================================================================================================== AQUI CONFIGURO LOS METADATOS Y ESTILOS PRINCIPALES DE MI TIENDA ===================================================================================================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KrhorkosStore | Categorías</title>
+    <title>KrhorkosStore | Catálogo Completo</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <!-- FontAwesome para Iconos -->
@@ -14,12 +13,16 @@
         :root {
             --bg-dark: #0f1015;
             --bg-card: #181922;
+            --bg-card-selected: #252336;
             --primary: #7b2ffd;
             --primary-hover: #9353ff;
             --accent: #00f5d4;
+            --whatsapp: #22c55e;
+            --whatsapp-hover: #16a34a;
             --text-main: #f8f9fa;
             --text-muted: #a0a5b1;
             --border-color: #2a2c3d;
+            --border-selected: #00f5d4;
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
@@ -35,6 +38,7 @@
             background-color: var(--bg-dark);
             color: var(--text-main);
             overflow-x: hidden;
+            padding-bottom: 120px;
         }
 
         header {
@@ -55,6 +59,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .logo {
@@ -72,15 +78,17 @@
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 20px;
             list-style: none;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .nav-links a {
             color: var(--text-muted);
             text-decoration: none;
             font-weight: 600;
+            font-size: 0.95rem;
             transition: var(--transition);
         }
 
@@ -89,13 +97,17 @@
         }
 
         section {
-            padding: 140px 20px 100px 20px;
+            padding: 140px 20px 60px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .section-title {
+        .section-header {
             text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
             font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 10px;
@@ -103,74 +115,191 @@
         }
 
         .section-subtitle {
-            text-align: center;
             color: var(--text-muted);
-            margin-bottom: 50px;
             font-size: 1.1rem;
         }
 
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 14px 32px;
-            border-radius: 8px;
-            text-decoration: none;
+        .category-container {
+            margin-bottom: 60px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 50px;
+        }
+
+        .category-heading {
+            font-size: 1.8rem;
             font-weight: 700;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(123, 47, 253, 0.4);
-            text-align: center;
+            margin-bottom: 25px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .btn:hover {
-            background: var(--primary-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(123, 47, 253, 0.6);
-        }
-
-        .categories-grid {
+        .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            justify-content: center;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
         }
-
-        .category-card {
+        
+        .product-card {
             background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            border: 2px solid var(--border-color);
             border-radius: 16px;
-            padding: 40px;
-            text-align: center;
+            overflow: hidden;
+            cursor: pointer;
             transition: var(--transition);
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 20px;
+            position: relative;
+            user-select: none;
         }
 
-        .category-card:hover {
-            transform: translateY(-8px);
+        .product-card:hover {
+            transform: translateY(-5px);
             border-color: var(--primary);
-            box-shadow: 0 10px 25px rgba(123, 47, 253, 0.3);
+            box-shadow: 0 10px 25px rgba(123, 47, 253, 0.2);
         }
 
-        .category-icon {
-            font-size: 4rem;
-            color: var(--primary);
-            margin-bottom: 10px;
+        .product-card.selected {
+            background-color: var(--bg-card-selected);
+            border-color: var(--border-selected);
+            box-shadow: 0 0 15px rgba(0, 245, 212, 0.2);
         }
 
-        .category-card h3 {
-            font-size: 2rem;
+        .selected-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--accent);
+            color: #0f1015;
+            font-size: 0.75rem;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-weight: 800;
+            display: none;
+            z-index: 10;
+        }
+
+        .product-card.selected .selected-badge {
+            display: block;
+        }
+
+        .product-img-container {
+            width: 100%;
+            height: 200px;
+            background-color: #212330;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-img-container img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .product-title {
+            font-size: 1.15rem;
             font-weight: 700;
+            color: var(--text-main);
         }
 
-        .category-card p {
+        .product-price {
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: var(--accent);
+        }
+
+        .product-desc {
             color: var(--text-muted);
-            font-size: 1.05rem;
-            line-height: 1.6;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Barra flotante / Carrito inferior */
+        .cart-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 16, 21, 0.95);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid var(--border-color);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.6);
+        }
+
+        .cart-info {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .cart-summary-text {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .cart-total {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: var(--text-main);
+        }
+
+        .btn-whatsapp-order {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--whatsapp);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+        }
+
+        .btn-whatsapp-order:hover:not(:disabled) {
+            background: var(--whatsapp-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.6);
+        }
+
+        .btn-whatsapp-order:disabled {
+            background: var(--border-color);
+            color: var(--text-muted);
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
         }
 
         footer {
@@ -185,50 +314,211 @@
 </head>
 <body>
 
-    <!-- ===================================================================================================== AQUI COLOCO MI BARRA DE NAVEGACION SUPERIOR ===================================================================================================== -->
     <header>
         <div class="nav-container">
-            <a href="sitio.html" class="logo">KRHORKOS<span>STORE</span></a>
+            <a href="#" class="logo">KRHORKOS<span>STORE</span></a>
             <ul class="nav-links">
-                <li><a href="sitio.html">Inicio</a></li>
-                <li><a href="calcetines.html">Calcetines</a></li>
-                <li><a href="boxers.html">Bóxers</a></li>
+                <li><a href="#calcetines">Calcetines</a></li>
+                <li><a href="#boxers">Bóxers</a></li>
+                <li><a href="#camisas">Camisas</a></li>
+                <li><a href="#pantalones">Pantalones</a></li>
             </ul>
         </div>
     </header>
 
-    <!-- ===================================================================================================== AQUI EMPIEZA LA SECCION PRINCIPAL DE SELECCION DE CATEGORIAS ===================================================================================================== -->
     <section>
-        <h2 class="section-title">Categorías de la Tienda</h2>
-        <p class="section-subtitle">Selecciona una categoría para explorar los productos disponibles</p>
+        <div class="section-header">
+            <h2 class="section-title">Catálogo Completo</h2>
+            <p class="section-subtitle">Selecciona cada tarjeta individualmente para ir sumando tu pedido</p>
+        </div>
 
-        <div class="categories-grid">
-            <!-- ===================================================================================================== AQUI PONGO LA TARJETA DE CATEGORIA DE CALCETINES ===================================================================================================== -->
-            <div class="category-card">
-                <div class="category-icon">
-                    <i class="fa-solid fa-socks"></i>
+        <!-- SECCIÓN 1 — CALCETINES -->
+        <div class="category-container" id="calcetines">
+            <h3 class="category-heading"><i class="fa-solid fa-socks"></i> Calcetines</h3>
+            <div class="products-grid">
+                
+                <div class="product-card" data-id="calcetin-blanco-1" data-name="Calcetines De Color Blanco" data-price="17">
+                    <div class="selected-badge">✓ Seleccionado</div>
+                    <div class="product-img-container">
+                        <img src="img/CALCETINES/ADULTO/CALCETIN_2.jpeg" alt="Par de Calcetines para Adulto">
+                    </div>
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">Calcetines De Color Blanco</h3>
+                            <p class="product-desc">Cómodos y de alta durabilidad para el día a día.</p>
+                        </div>
+                        <div class="product-price">$17 MXN</div>
+                    </div>
                 </div>
-                <h3>Calcetines</h3>
-                <p>Explora nuestra gran variedad de calcetines cómodos y de excelente calidad para todas las edades.</p>
-                <a href="calcetines.html" class="btn">Ver Calcetines</a>
-            </div>
 
-            <!-- ===================================================================================================== AQUI PONGO LA TARJETA DE CATEGORIA DE BOXERS ===================================================================================================== -->
-            <div class="category-card">
-                <div class="category-icon">
-                    <i class="fa-solid fa-vest-patches"></i>
+                <div class="product-card" data-id="calcetin-blanco-2" data-name="Calcetines De Color Blanco" data-price="17">
+                    <div class="selected-badge">✓ Seleccionado</div>
+                    <div class="product-img-container">
+                        <img src="img/CALCETINES/ADULTO/CALCETIN_2.jpeg" alt="Par de Calcetines para Adulto">
+                    </div>
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">Calcetines De Color Blanco</h3>
+                            <p class="product-desc">Segundo par independiente de calcetines blancos.</p>
+                        </div>
+                        <div class="product-price">$17 MXN</div>
+                    </div>
                 </div>
-                <h3>Bóxers</h3>
-                <p>Encuentra bóxers cómodos, frescos y con diseños chidos pensados para el día a día.</p>
-                <a href="boxers.html" class="btn">Ver Bóxers</a>
+
             </div>
         </div>
+
+        <!-- SECCIÓN 2 — BÓXERS -->
+        <div class="category-container" id="boxers">
+            <h3 class="category-heading"><i class="fa-solid fa-vest-patches"></i> Bóxers</h3>
+            <div class="products-grid">
+                
+                <div class="product-card" data-id="boxer-algodon-1" data-name="Bóxer Elastizado Algodón" data-price="95">
+                    <div class="selected-badge">✓ Seleccionado</div>
+                    <div class="product-img-container">
+                        <img src="img/CALCETINES/ADULTO/CALCETIN_2.jpeg" alt="Bóxer Elastizado">
+                    </div>
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">Bóxer Elastizado Algodón</h3>
+                            <p class="product-desc">Máxima comodidad y ajuste perfecto.</p>
+                        </div>
+                        <div class="product-price">$95 MXN</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SECCIÓN 3 — CAMISAS -->
+        <div class="category-container" id="camisas">
+            <h3 class="category-heading"><i class="fa-solid fa-shirt"></i> Camisas</h3>
+            <div class="products-grid">
+                
+                <div class="product-card" data-id="camisa-casual-1" data-name="Camisa Casual Casual-Fit" data-price="350">
+                    <div class="selected-badge">✓ Seleccionado</div>
+                    <div class="product-img-container">
+                        <img src="img/CALCETINES/ADULTO/CALCETIN_2.jpeg" alt="Camisa Casual">
+                    </div>
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">Camisa Casual Casual-Fit</h3>
+                            <p class="product-desc">Ideal para cualquier ocasión casual o semi-formal.</p>
+                        </div>
+                        <div class="product-price">$350 MXN</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SECCIÓN 4 — PANTALONES -->
+        <div class="category-container" id="pantalones" style="border-bottom: none; padding-bottom: 0;">
+            <h3 class="category-heading"><i class="fa-solid fa-user-tie"></i> Pantalones</h3>
+            <div class="products-grid">
+                
+                <div class="product-card" data-id="pantalon-slim-1" data-name="Pantalón Casual Slim Fit" data-price="550">
+                    <div class="selected-badge">✓ Seleccionado</div>
+                    <div class="product-img-container">
+                        <img src="img/CALCETINES/ADULTO/CALCETIN_2.jpeg" alt="Pantalón Slim Fit">
+                    </div>
+                    <div class="product-info">
+                        <div>
+                            <h3 class="product-title">Pantalón Casual Slim Fit</h3>
+                            <p class="product-desc">Estilo versátil y tela duradera.</p>
+                        </div>
+                        <div class="product-price">$550 MXN</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </section>
 
-    <!-- ===================================================================================================== AQUI PONGO EL PIE DE PAGINA DE MI SITIO WEB ===================================================================================================== -->
+    <!-- BARRA INFERIOR / CARRITO FLOTANTE -->
+    <div class="cart-bar">
+        <div class="cart-info">
+            <div>
+                <div class="cart-summary-text" id="cart-counter">0 productos seleccionados</div>
+                <div class="cart-total" id="cart-total-price">Total: $0.00 MXN</div>
+            </div>
+            <button id="whatsapp-btn" class="btn-whatsapp-order" disabled onclick="enviarPedidoWhatsApp('')"><!-- ====================== Dentro de las comillas pongo el numero real de WhatsApp ================================== -->
+                <i class="fa-brands fa-whatsapp fa-lg"></i> Enviar Pedido por WhatsApp
+            </button>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2026 KrhorkosStore. Todos los derechos reservados.</p>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.product-card');
+            const cartCounter = document.getElementById('cart-counter');
+            const cartTotalPrice = document.getElementById('cart-total-price');
+            const whatsappBtn = document.getElementById('whatsapp-btn');
+
+            let selectedCardsMap = new Map();
+
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    card.classList.toggle('selected');
+                    
+                    const cardId = card.getAttribute('data-id');
+                    const name = card.getAttribute('data-name');
+                    const priceValue = parseFloat(card.getAttribute('data-price')) || 0;
+
+                    if (card.classList.contains('selected')) {
+                        selectedCardsMap.set(cardId, { name, priceValue });
+                    } else {
+                        selectedCardsMap.delete(cardId);
+                    }
+
+                    actualizarCarrito();
+                });
+            });
+
+            function actualizarCarrito() {
+                const count = selectedCardsMap.size;
+                cartCounter.textContent = `${count} producto${count === 1 ? '' : 's'} seleccionado${count === 1 ? '' : 's'}`;
+
+                let totalSum = 0;
+                selectedCardsMap.forEach(item => {
+                    totalSum += item.priceValue;
+                });
+
+                cartTotalPrice.textContent = `Total: $${totalSum.toFixed(2)} MXN`;
+
+                if (count > 0) {
+                    whatsappBtn.removeAttribute('disabled');
+                } else {
+                    whatsappBtn.setAttribute('disabled', 'true');
+                }
+            }
+
+            window.enviarPedidoWhatsApp = function(numeroWhatsApp) {
+                if (selectedCardsMap.size === 0) return;
+
+                let mensaje = "El pedido sera:%0A%0A";
+                let index = 1;
+                selectedCardsMap.forEach(item => {
+                    mensaje += `${index}. *${item.name}* - $${item.priceValue.toFixed(2)} MXN%0A`;
+                    index++;
+                });
+
+                let totalSum = 0;
+                selectedCardsMap.forEach(item => {
+                    totalSum += item.priceValue;
+                });
+
+                mensaje += `%0A*Total a pagar: $${totalSum.toFixed(2)} MXN*`;
+
+                const url = `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
+                window.open(url, '_blank');
+            };
+        });
+    </script>
 </body>
 </html>
